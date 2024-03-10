@@ -1,0 +1,37 @@
+[INFO] 2024-03-09 20:53:56,440 server.py:73: Edit config: {"server_port":8001,"log_level":"INFO","server_mode":"PROD","parsers_module_path":"aiconfig_model_registry.py","env_file_path":null}
+[INFO] 2024-03-09 20:53:56,440 server.py:74: Starting server on http://localhost:8001
+[INFO] 2024-03-09 20:53:56,441 server_utils.py:298: Initializing server state for 'edit' command
+[WARNING] 2024-03-09 20:53:56,441 server_utils.py:280: Failed to load parsers module: File does not exist: /Users/joseramos/Documents/GitHub/OLML/aiconfig_model_registry.py
+[WARNING] 2024-03-09 20:53:56,441 server_utils.py:306: No .env file path provided: 'None'
+[INFO] 2024-03-09 20:53:56,441 server.py:100: Initialized server state
+[INFO] 2024-03-09 20:53:56,441 server.py:105: Running in ServerMode.PROD mode
+[ERROR] 2024-03-09 20:54:20,523 app.py:1457: Exception on /api/load_content [POST]
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/aiconfig/editor/server/server.py", line 239, in load_content
+    aiconfig = AIConfigRuntime.load_yaml(content)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/aiconfig/Config.py", line 154, in load_yaml
+    return cls.load_json(config_json)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/aiconfig/Config.py", line 138, in load_json
+    config_runtime = cls.model_validate_json(config_json)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pydantic/main.py", line 538, in model_validate_json
+    return cls.__pydantic_validator__.validate_json(json_data, strict=strict, context=context)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for AIConfigRuntime
+  Input should be an object [type=model_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.6/v/model_type
+[INFO] 2024-03-09 20:56:09,114 server.py:73: Edit config: {"server_port":8002,"log_level":"INFO","server_mode":"PROD","parsers_module_path":"aiconfig_model_registry.py","env_file_path":null}
+[INFO] 2024-03-09 20:56:09,115 server.py:74: Starting server on http://localhost:8002
+[INFO] 2024-03-09 20:56:09,115 server_utils.py:298: Initializing server state for 'edit' command
+[WARNING] 2024-03-09 20:56:09,116 server_utils.py:280: Failed to load parsers module: File does not exist: /Users/joseramos/Documents/GitHub/OLML/aiconfig_model_registry.py
+[WARNING] 2024-03-09 20:56:09,116 server_utils.py:306: No .env file path provided: 'None'
+[INFO] 2024-03-09 20:56:09,117 server.py:100: Initialized server state
+[INFO] 2024-03-09 20:56:09,118 server.py:105: Running in ServerMode.PROD mode
