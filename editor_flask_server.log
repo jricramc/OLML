@@ -2777,3 +2777,44 @@ pydantic_core._pydantic_core.ValidationError: 1 validation error for AIConfigRun
 [INFO] 2024-03-10 00:55:14,033 server_utils.py:429: res_run=Ok(None)
 [INFO] 2024-03-10 00:55:15,135 server.py:537: Running `aiconfig.run()` command with request: {'prompt_name': 'personalized_article', 'stream': True, 'cancellation_token_id': '4dd313ff-c297-44e0-bf36-f0dbc395911f'}
 [INFO] 2024-03-10 00:55:31,869 server.py:537: Running `aiconfig.run()` command with request: {'prompt_name': 'image_generation', 'stream': True, 'cancellation_token_id': '55d41ba2-47ff-4ede-a5ce-1e78de95a20e'}
+[INFO] 2024-03-10 16:03:47,855 server.py:73: Edit config: {"server_port":8001,"log_level":"INFO","server_mode":"PROD","parsers_module_path":"aiconfig_model_registry.py","env_file_path":"/Users/georgina/OLML/.env"}
+[INFO] 2024-03-10 16:03:47,855 server.py:74: Starting server on http://localhost:8001
+[INFO] 2024-03-10 16:03:47,855 server_utils.py:298: Initializing server state for 'edit' command
+[WARNING] 2024-03-10 16:03:47,855 server_utils.py:280: Failed to load parsers module: File does not exist: /Users/georgina/OLML/aiconfig_model_registry.py
+[INFO] 2024-03-10 16:03:47,855 server.py:100: Initialized server state
+[INFO] 2024-03-10 16:03:47,855 server.py:105: Running in ServerMode.PROD mode
+[INFO] 2024-03-10 16:03:48,099 server.py:537: Running `aiconfig.run()` command with request: {'prompt_name': 'article_analysis', 'stream': True, 'cancellation_token_id': 'd440772c-87f2-4022-884f-c3b06dbf51d4'}
+[INFO] 2024-03-10 16:03:48,969 server.py:537: Running `aiconfig.run()` command with request: {'prompt_name': 'article_analysis', 'stream': True, 'cancellation_token_id': '7c4699cf-9bc2-4795-88b8-c90bc3cfde93'}
+[INFO] 2024-03-10 16:04:51,050 server.py:537: Running `aiconfig.run()` command with request: {'prompt_name': 'article_analysis', 'stream': True, 'cancellation_token_id': 'ba949523-d617-4aa9-87d4-5e4429fa2126'}
+[INFO] 2024-03-10 16:05:23,383 server_utils.py:422: About to run operation: set_name, res_op_args=Ok({'name': ''})
+[INFO] 2024-03-10 16:05:23,386 server_utils.py:397: Running method: set_name, operation_args={'name': ''}
+[INFO] 2024-03-10 16:05:23,387 server_utils.py:373: Method result (set_name): None
+[INFO] 2024-03-10 16:05:23,387 server_utils.py:429: res_run=Ok(None)
+[INFO] 2024-03-10 16:05:24,309 server_utils.py:422: About to run operation: set_name, res_op_args=Ok({'name': 'Older '})
+[INFO] 2024-03-10 16:05:24,309 server_utils.py:397: Running method: set_name, operation_args={'name': 'Older '}
+[INFO] 2024-03-10 16:05:24,309 server_utils.py:373: Method result (set_name): None
+[INFO] 2024-03-10 16:05:24,309 server_utils.py:429: res_run=Ok(None)
+[INFO] 2024-03-10 16:05:24,904 server_utils.py:422: About to run operation: set_name, res_op_args=Ok({'name': 'Older Sis'})
+[INFO] 2024-03-10 16:05:24,905 server_utils.py:397: Running method: set_name, operation_args={'name': 'Older Sis'}
+[INFO] 2024-03-10 16:05:24,905 server_utils.py:373: Method result (set_name): None
+[INFO] 2024-03-10 16:05:24,905 server_utils.py:429: res_run=Ok(None)
+[INFO] 2024-03-10 16:05:26,809 server_utils.py:422: About to run operation: set_name, res_op_args=Ok({'name': 'Older Sister AI '})
+[INFO] 2024-03-10 16:05:26,809 server_utils.py:397: Running method: set_name, operation_args={'name': 'Older Sister AI '}
+[INFO] 2024-03-10 16:05:26,810 server_utils.py:373: Method result (set_name): None
+[INFO] 2024-03-10 16:05:26,810 server_utils.py:429: res_run=Ok(None)
+[INFO] 2024-03-10 16:05:28,298 server_utils.py:422: About to run operation: set_name, res_op_args=Ok({'name': 'Older Sister AI COnfig'})
+[INFO] 2024-03-10 16:05:28,299 server_utils.py:397: Running method: set_name, operation_args={'name': 'Older Sister AI COnfig'}
+[INFO] 2024-03-10 16:05:28,299 server_utils.py:373: Method result (set_name): None
+[INFO] 2024-03-10 16:05:28,299 server_utils.py:429: res_run=Ok(None)
+[INFO] 2024-03-10 16:05:29,334 server_utils.py:422: About to run operation: set_name, res_op_args=Ok({'name': 'Older Sister AI C'})
+[INFO] 2024-03-10 16:05:29,334 server_utils.py:397: Running method: set_name, operation_args={'name': 'Older Sister AI C'}
+[INFO] 2024-03-10 16:05:29,334 server_utils.py:373: Method result (set_name): None
+[INFO] 2024-03-10 16:05:29,335 server_utils.py:429: res_run=Ok(None)
+[INFO] 2024-03-10 16:05:29,804 server_utils.py:422: About to run operation: set_name, res_op_args=Ok({'name': 'Older Sister AI Con'})
+[INFO] 2024-03-10 16:05:29,804 server_utils.py:397: Running method: set_name, operation_args={'name': 'Older Sister AI Con'}
+[INFO] 2024-03-10 16:05:29,804 server_utils.py:373: Method result (set_name): None
+[INFO] 2024-03-10 16:05:29,804 server_utils.py:429: res_run=Ok(None)
+[INFO] 2024-03-10 16:05:30,598 server_utils.py:422: About to run operation: set_name, res_op_args=Ok({'name': 'Older Sister AI Config '})
+[INFO] 2024-03-10 16:05:30,598 server_utils.py:397: Running method: set_name, operation_args={'name': 'Older Sister AI Config '}
+[INFO] 2024-03-10 16:05:30,598 server_utils.py:373: Method result (set_name): None
+[INFO] 2024-03-10 16:05:30,598 server_utils.py:429: res_run=Ok(None)
