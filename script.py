@@ -1,10 +1,11 @@
 # Placeholder for user data and article data
-
-from aiconfig import AIConfigRuntime
-import json
 import asyncio
+import os
+import json
+import dotenv
+import openai
 
-
+from aiconfig import AIConfigRuntime, InferenceOptions, Prompt
 
 user_data = ["{\n  \"userProfile\": {\n    \"age\": 25,\n    \"height\": \"170cm\",\n    \"weight\": \"60kg\",\n    \"bloodType\": \"A+\",\n    \"medicalHistory\": {\n      \"allergies\": [],\n      \"chronicConditions\": [],\n      \"medications\": [],\n      \"surgeries\": []\n    }\n  },\n  \"menstrualCycle\": {\n    \"averageLength\": 28,\n    \"averagePeriodDuration\": 5,\n    \"lastPeriodStartDate\": \"2024-02-10\",\n    \"symptomsTracking\": {\n      \"cramps\": \"moderate\",\n      \"bloating\": \"mild\",\n      \"moodSwings\": \"yes\"\n    }\n  },\n  \"reproductiveHealth\": {\n    \"pregnancies\": 0,\n    \"planningPregnancy\": \"no\",\n    \"contraceptiveUse\": \"yes\",\n    \"typeOfContraceptive\": \"birth control pills\"\n  },\n  \"generalHealth\": {\n    \"diet\": {\n      \"type\": \"balanced\",\n      \"restrictions\": []\n    },\n    \"exerciseFrequency\": \"3 times a week\",\n    \"sleepAverage\": \"8 hours\",\n    \"stressLevel\": \"moderate\",\n    \"alcoholConsumption\": \"socially\",\n    \"smokingHabits\": \"non-smoker\"\n  },\n  \"screeningTests\": {\n    \"lastPapSmear\": \"2023-01-15\",\n    \"lastMammogram\": \"not applicable\",\n    \"lastBoneDensityTest\": \"not applicable\",\n    \"vaccinations\": {\n      \"hpv\": \"completed\",\n      \"tetanus\": \"up to date\"\n    }\n  }\n}\n"] # Add all user data here
 
@@ -58,79 +59,89 @@ Clinical Significance
 A female has an average of 450 menses throughout her lifetime; therefore, it is important to understand the menstrual cycle and its physiology because of the various complications, consequences, and distress that it may have for a female patient. A female presenting with primary or secondary amenorrhea will need to undergo clinical testing to diagnose the reason. Still, reasonable testing from the level of the ovaries to the hypothalamus cannot be performed unless a clinician thoroughly understands the hormone feedback system. Additionally, there may be problems with her menses themselves, such as premenstrual syndrome, dysmenorrhea, or menorrhagia. Without an understanding of the female anatomy and menstrual cycle physiology, a clinician would be unable to obtain a complete history and physical to allow understanding of the underlying cause. Infertility is a prominent issue in our society, and the menstrual cycle is the basis for how a woman’s body prepares for pregnancy, so each patient’s menstrual cycle must be evaluated as a possible area of concern for her infertility. As clinicians, we must understand the menstrual cycle in its entirety to provide relevant clinical care to our female patients
 """
 
-    
 
+dotenv.load_dotenv()
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
-# Modify the function to be async and use await for the run method
-async def personalize_articles(user_data, article_data):\
+def save_parameters_to_json(article_data, user_data):
+    parameters = {
+        "parameters": {
+            "article_string": article_data,
+            "user_data": user_data
+        }
+    }
+    with open('output_parameters.json', 'w') as json_file:
+        json.dump(parameters, json_file, indent=2)
 
-    config = AIConfigRuntime.load('testing.json')
+async def main():
+    while True:
+        user_input = input("\nUser: ")
+        if user_input == "quit":
+            break
 
-    config.set_parameter("user_data", "${user_data}")
-    config.set_parameter("article_string", "${article_data}")
+        # Dynamically generate the prompt name and prompt object
+        new_prompt_name = (
+            f"prompt{len(config.prompts)+1}"  # Prompt{number of prompts}
+        )
+        new_prompt = Prompt(name=new_prompt_name, input=user_input)
 
+        # Add the new prompt and run the model
+        config.add_prompt(new_prompt.name, new_prompt)
+        await config.run(new_prompt_name, options=inference_options)
 
-    # await config.run()
+        save_parameters_to_json(article_data, user_data)
 
-    results =  await config.run("article_analysis")  # Use await here
-
-    print('resutlt', results)
-
-    config.save()
-
-    # inputs = {
-    #     'user_data': json.dumps(user_data),
-    #     'article_string': article_data
-    # }
-    
-
-    personalized_article = results
-    
-    return personalized_article
-
-
-
-
-
-
-
-
-
-# # Initialize an empty dictionary to hold all personalized articles
-# personalized_articles_all_users = {}
-
-
-
-# # Generate personalized articles for each user
-# for user in user_data:
-#     personalized_article = personalize_articles(user, article_data)
-#     # Add the personalized article to the dictionary, keyed by the user ID
-#     personalized_articles_all_users[user['user_id']] = personalized_article
-
-# Define the filename for the single JSON file
-
-
-
-# # Write the dictionary of all personalized articles to the JSON file
-# with open(filename, 'w') as json_file:
-#     json.dump(personalize_articles(user_data, article_data), json_file, indent=4)
-
-# print(f"All personalized articles have been written to {filename}")
 
 if __name__ == "__main__":
-    filename = "all_personalized_articles.txt"
+    inference_options = InferenceOptions()
+    config = AIConfigRuntime.load("testing.json")
+    asyncio.run(main())
 
-    # Run the async function and wait for the result
-    async def main():
-        personalized_article = await personalize_articles(user_data, article_data)
-        return personalized_article
 
-    # Run the main coroutine and capture the result
-    personalized_article_result = asyncio.run(main())
+
+# # Modify the function to be async and use await for the run method
+# async def personalize_articles(user_data, article_data):\
+
+#     config = AIConfigRuntime.load('testing.json')
+
+#     config.set_parameter("user_data", "${user_data}")
+#     config.set_parameter("article_string", "${article_data}")
+
+
+#     # await config.run()
+
+#     results =  await config.run("article_analysis")  # Use await here
+
+#     print('resutlt', results)
+
+#     config.save()
+
+#     # inputs = {
+#     #     'user_data': json.dumps(user_data),
+#     #     'article_string': article_data
+#     # }
     
-    # Write the result to a TXT file
-    with open(filename, 'w') as txt_file:
-        # Assuming personalized_article_result is a string or can be converted to a string
-        txt_file.write(str(personalized_article_result))
 
-    print(f"All personalized articles have been written to {filename}")
+#     personalized_article = results
+    
+#     return personalized_article
+
+
+
+# if __name__ == "__main__":
+#     filename = "all_personalized_articles.txt"
+
+#     # Run the async function and wait for the result
+#     async def main():
+#         personalized_article = await personalize_articles(user_data, article_data)
+#         return personalized_article
+
+#     # Run the main coroutine and capture the result
+#     personalized_article_result = asyncio.run(main())
+    
+#     # Write the result to a TXT file
+#     with open(filename, 'w') as txt_file:
+#         # Assuming personalized_article_result is a string or can be converted to a string
+#         txt_file.write(str(personalized_article_result))
+
+#     print(f"All personalized articles have been written to {filename}")

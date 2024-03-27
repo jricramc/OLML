@@ -1,0 +1,123 @@
+$schema: https://json.schemastore.org/aiconfig-1.0
+description: ''
+metadata:
+  default_model: gpt-3.5-turbo
+  models:
+    gpt-3.5-turbo:
+      model: gpt-3.5-turbo
+      temperature: 1
+      top_p: 1
+  parameters:
+    context: "Top Questions About Fitness and Women\nBeing physically active is one\
+      \ of the most important\nsteps you can take to get and stay healthy. Women\n\
+      of all ages, shapes, and abilities benefit from getting\nactive. Regular physical\
+      \ activity (exercise) can help\nlower your risk for many diseases that affect\
+      \ women,\nincluding heart disease and stroke. Exercise can also\nhelp relieve\
+      \ symptoms of some conditions, such as\ndepression, type 2 diabetes, and high\
+      \ blood pressure.\nWomen need to do different types of physical activities\n\
+      to reach or stay at a healthy weight and build strength\nand endurance.\nQ:\
+      \ How can physical activity help my health?\nA: Getting regular physical activity\
+      \ is one of the best\nthings you can do for your health. Regular physical\n\
+      activity can help:\n\u2022 Lower blood pressure and cholesterol\n\u2022 Improve\
+      \ depression\n\u2022 Improve sleep\n\u2022 Lower your risk of diseases such\
+      \ as breast\ncancer, colon cancer, type 2 diabetes, heart\ndisease, and stroke\n\
+      \u2022 Lower your risk of dying early\nQ: How much physical activity should\
+      \ I do?\nA: Each week, women should get at least:\n\u2022 2 hours and 30 minutes\
+      \ (150 minutes) of\nmoderate-intensity aerobic physical activity. You\nknow\
+      \ you are doing a moderate-intensity activity\nOR\n\u2022 1 hour and 15 minutes\
+      \ (75 minutes) of vigorousintensity aerobic activity. You know you are\ndoing\
+      \ a vigorous-intensity physical activity when\nyou are breathing hard and it\
+      \ is difficult to have a\nconversation. This could be a 40-minute jog or step\n\
+      class twice a week.\nAND\n\u2022 Muscle-strengthening activities on two or\n\
+      more days.\nQ: Can I exercise if I have underweight,\noverweight, or obesity?\n\
+      A: Maybe. People who are underweight due to an\neating disorder should not exercise\
+      \ unless their doctor\ntells them to. Women who have overweight or obesity\n\
+      should talk to their doctor or nurse about any concerns\nthey have about beginning\
+      \ an exercise program.\nFor most people, any amount or type of physical\nactivity\
+      \ will help your overall health. Physical\nactivity can also improve muscle\
+      \ strength, balance,\nand flexibility.\nStart slowly if you haven\u2019t been\
+      \ physically active before\nor if it has been a while. Talk to your doctor or\
+      \ nurse\nabout exercise if you have a health condition. Your\ndoctor or nurse\
+      \ can help you develop an exercise plan\nthat is healthy and safe for a person\
+      \ of your current\nweight and fitness level.\nQ: Can exercise help menstrual\
+      \ cramps?\nA: Maybe. Researchers have found that some women\nhave fewer painful\
+      \ cramps during menstruation if they\nwhen your heart is beating faster but\
+      \ you can still\nexercise regularly. There are almost no risks to regular\n\
+      physical activity, like walking, which may also help\nyou feel better during\
+      \ your period.\nQ: Is it safe to exercise during pregnancy?\nA: Physical activity\
+      \ during pregnancy is usually safe\nand healthy for you and your baby. And the\
+      \ more\nactive you are during pregnancy, the easier it will be\nto start getting\
+      \ active after your baby is born. Talk to\nyour doctor about your activity level\
+      \ throughout\nyour pregnancy.\nQ: How can I avoid weight gain\nafter menopause?\n\
+      A: As you age, and especially in the years after\nmenopause, you may find it\
+      \ harder to maintain your\nweight. You may need to increase the amount of\n\
+      physical activity you get and lower how many calories\nyou eat to stay the same\
+      \ weight.\ncarry on a conversation. Try a brisk, 30-minute\nwalk five times\
+      \ a week.\n\nQ: How can physical activity help older women?\nA: As you get older,\
+      \ regular physical activity helps:\n\u2022 Keep bones strong\n\u2022 Prevent\
+      \ hip fractures (breaking your hip)\n\u2022 Decrease pain from arthritis\n\u2022\
+      \ Prevent dementia\n\u2022 Maintain your independence\nBalance exercises are\
+      \ important for all women, but\nespecially older women who are at a higher risk\
+      \ of\nfalls. Examples of these exercises include tai chi and\nstanding from\
+      \ a sitting position.\n\nCitation: Top Questions About Fitness and Women, https://owh-wh-d9-dev.s3.amazonaws.com/s3fs-public/documents/fact-sheet-fitness-and-women.pdf"
+    question: How many hours of activity should I get per week?
+name: Women's Health Demo
+prompts:
+- input: "Act like a information chatbot that responds back to questions in regards\
+    \ to women's health. \n\nRespond back to the following question:\n{{question}}\n\
+    \nWhen responding to the question leverage the following context:\n{{context}}"
+  metadata:
+    model: gpt-3.5-turbo
+    parameters: {}
+  name: health-question
+  outputs:
+  - data: 'A: Each week, women should get at least 2 hours and 30 minutes (150 minutes)
+      of moderate-intensity aerobic physical activity. You can also opt for 1 hour
+      and 15 minutes (75 minutes) of vigorous-intensity aerobic activity. In addition
+      to this, it is recommended to include muscle-strengthening activities on two
+      or more days per week. It''s important to start slowly if you haven''t been
+      physically active before or if it has been a while. Always consult with your
+      doctor or nurse if you have any health concerns before starting an exercise
+      program.'
+    execution_count: 0
+    metadata:
+      created: 1710788793
+      id: chatcmpl-94CbZsNwDUXsfaqp4H40FVpC3z4Po
+      model: gpt-3.5-turbo-0125
+      object: chat.completion.chunk
+      raw_response:
+        content: 'A: Each week, women should get at least 2 hours and 30 minutes (150
+          minutes) of moderate-intensity aerobic physical activity. You can also opt
+          for 1 hour and 15 minutes (75 minutes) of vigorous-intensity aerobic activity.
+          In addition to this, it is recommended to include muscle-strengthening activities
+          on two or more days per week. It''s important to start slowly if you haven''t
+          been physically active before or if it has been a while. Always consult
+          with your doctor or nurse if you have any health concerns before starting
+          an exercise program.'
+        role: assistant
+      role: assistant
+      system_fingerprint: fp_4f2ebda25a
+    output_type: execute_result
+- input: 'What is the citation of the following context:
+
+
+    {{citation}}'
+  metadata:
+    model: gpt-3.5-turbo
+    parameters: {}
+  name: citation
+  outputs:
+  - data: 'Citation: Top Questions About Fitness and Women, https://owh-wh-d9-dev.s3.amazonaws.com/s3fs-public/documents/fact-sheet-fitness-and-women.pdf'
+    execution_count: 0
+    metadata:
+      created: 1710788819
+      id: chatcmpl-94Cbzx3w7qfS9qew1tcYfuxV8MxPt
+      model: gpt-3.5-turbo-0125
+      object: chat.completion.chunk
+      raw_response:
+        content: 'Citation: Top Questions About Fitness and Women, https://owh-wh-d9-dev.s3.amazonaws.com/s3fs-public/documents/fact-sheet-fitness-and-women.pdf'
+        role: assistant
+      role: assistant
+      system_fingerprint: fp_4f2ebda25a
+    output_type: execute_result
+schema_version: latest

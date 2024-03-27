@@ -4,7 +4,8 @@
   "metadata": {
     "parameters": {
       "article_string": "${article_data}",
-      "user_data": "${user_data}"
+      "user_data": "${user_data}",
+      "": ""
     },
     "models": {
       "gpt-3.5-turbo": {
@@ -18,69 +19,6 @@
   "description": "Welcome to AIConfig Editor! Write, test, and manage your prompts in VS Code. Learn more [here](https://aiconfig.lastmileai.dev/docs/category/overview)!\n&nbsp;\n**Tip:** Open 'Global Parameters' to see variables that are used in some of the prompts below.",
   "prompts": [
     {
-      "name": "article_analysis",
-      "input": "Analyze this article and if there is anything that seems not valid then explain what is not valid, otherwise say it is \"all clear\":\n\n{{article_string}} ",
-      "metadata": {
-        "model": {
-          "name": "gpt-3.5-turbo",
-          "settings": {
-            "system_prompt": "You will take in a women's health article. It is your responsibility to verify what information is valid in the article and then flag anything that might not be valid based on your training data. "
-          }
-        },
-        "parameters": {}
-      },
-      "outputs": [
-        {
-          "output_type": "execute_result",
-          "execution_count": 0,
-          "data": "I'm here to help! Please provide the women's health article that you would like me to analyze.",
-          "metadata": {
-            "id": "chatcmpl-91LQb44POVwg5lKjYQc5W1VHYSus3",
-            "created": 1710107725,
-            "model": "gpt-3.5-turbo-0125",
-            "object": "chat.completion.chunk",
-            "system_fingerprint": "fp_4f0b692a78",
-            "raw_response": {
-              "content": "I'm here to help! Please provide the women's health article that you would like me to analyze.",
-              "role": "assistant"
-            },
-            "role": "assistant"
-          }
-        }
-      ]
-    },
-    {
-      "name": "article_revision",
-      "input": "Based on the article that I will give you, \"Analysis 1\" tells us whether there is something wrong with it. If there is, I want you to rewrite the article with the correct information and add a citation at the end that explains where the correct information is coming from.\n\nAnalysis 1: {{article_analysis.output}} \nArticle: {{article_string}}",
-      "metadata": {
-        "model": {
-          "name": "gpt-4",
-          "settings": {
-            "system_prompt": "You will output a string of an article that fits the necessary criteria. "
-          }
-        },
-        "parameters": {}
-      },
-      "outputs": [
-        {
-          "output_type": "execute_result",
-          "execution_count": 0,
-          "data": "The article you have provided is all clear based on \"Analysis 1\". This means that there are no inaccuracies or false information to correct. The article provides an in-depth understanding of the female menstrual cycle, its functions, and mechanisms. It also details the phases of the cycle; the follicular or proliferative phase, ovulation, the luteal or secretory phase, and normal menstruation. In addition, it covers the pathophysiology of anovulatory cycles and the clinical significance of understanding the menstrual cycle.\n\nFurthermore, the sources [1][2][3][4][5][6][7][8][9][10] have been appropriately cited according to academic standards, proving that the article has a solid factual basis. Hence, there aren't any changes needed for this article.",
-          "metadata": {
-            "id": "chatcmpl-91Jt7oRR83cTDfZWWnJCf1xgOACsj",
-            "created": 1710101805,
-            "model": "gpt-4-0613",
-            "object": "chat.completion.chunk",
-            "raw_response": {
-              "content": "The article you have provided is all clear based on \"Analysis 1\". This means that there are no inaccuracies or false information to correct. The article provides an in-depth understanding of the female menstrual cycle, its functions, and mechanisms. It also details the phases of the cycle; the follicular or proliferative phase, ovulation, the luteal or secretory phase, and normal menstruation. In addition, it covers the pathophysiology of anovulatory cycles and the clinical significance of understanding the menstrual cycle.\n\nFurthermore, the sources [1][2][3][4][5][6][7][8][9][10] have been appropriately cited according to academic standards, proving that the article has a solid factual basis. Hence, there aren't any changes needed for this article.",
-              "role": "assistant"
-            },
-            "role": "assistant"
-          }
-        }
-      ]
-    },
-    {
       "name": "condensing",
       "input": "Turn this article into something that summarizes the key points but still goes in depth into what is relevant:\n{{article_string}}\n",
       "metadata": {
@@ -91,14 +29,14 @@
         {
           "output_type": "execute_result",
           "execution_count": 0,
-          "data": "Article Summary: \n\nTitle: Physiology, Menstrual Cycle \nAuthors: Dhanalakshmi K. Thiyagarajan; Hajira Basit; Rebecca Jeanmonod. \nLast Updated: October 24, 2022.\n\nThe female reproductive system shows cyclic changes in preparation for pregnancy and fertilization. This event is the menstrual cycle, characterized by periodical vaginal bleeding due to uterine mucose shedding. The average cycle, ranging from the beginning of one period to the next, lasts about 28 days and starts at puberty (10-16 years) and ends at menopause (average age 51). \n\nThe menstrual cycle is governed by hormones secreted in feedback mechanisms that begin at puberty with the release of gonadotropin-releasing hormone (GnRH). The hormones from the hypothalamus trigger the anterior pituitary to secrete follicle-stimulating hormone (FSH) and luteinizing hormone (LH), prompting ovarian hormone production. The hormone regulation occurs in phases - follicular/proliferative phase, ovulation, and the luteal or secretory phase. \n\nThe follicular phase facilitates growth in the uterus to accommodate possible pregnancy, while ovulation, occurring about 14 days before menstruation, releases a mature follicle. The luteal phase readies the corpus luteum and endometrium for fertilized ovum implantation. Normal menstruation occurs when hormone levels decrease, and the endometrium layer can no longer be maintained. \n\nAnovulatory cycles, where ovulation fails to occur, often appear in the first 12-18 months post-menarche and prior menopause. Lastly, understanding menstrual physiology is essential in addressing and diagnosing various complications, distress, amenorrhea, menstrual issues, and infertility, crucial to providing relevant care to female patients.",
+          "data": "Sorry, I can't process your request because you have provided a variable (\"${article_data}\") but haven't given any specific text or article to summarize. Please give me the text or the link to the article you need summarized, and I'll be more than happy to help you with it.",
           "metadata": {
-            "id": "chatcmpl-91JtJiwmMzWSRnLVbVIWJVX2lKkmw",
-            "created": 1710101817,
+            "id": "chatcmpl-923MCLZPZsgMRIL6fk1DljcHDBdJr",
+            "created": 1710276588,
             "model": "gpt-4-0613",
             "object": "chat.completion.chunk",
             "raw_response": {
-              "content": "Article Summary: \n\nTitle: Physiology, Menstrual Cycle \nAuthors: Dhanalakshmi K. Thiyagarajan; Hajira Basit; Rebecca Jeanmonod. \nLast Updated: October 24, 2022.\n\nThe female reproductive system shows cyclic changes in preparation for pregnancy and fertilization. This event is the menstrual cycle, characterized by periodical vaginal bleeding due to uterine mucose shedding. The average cycle, ranging from the beginning of one period to the next, lasts about 28 days and starts at puberty (10-16 years) and ends at menopause (average age 51). \n\nThe menstrual cycle is governed by hormones secreted in feedback mechanisms that begin at puberty with the release of gonadotropin-releasing hormone (GnRH). The hormones from the hypothalamus trigger the anterior pituitary to secrete follicle-stimulating hormone (FSH) and luteinizing hormone (LH), prompting ovarian hormone production. The hormone regulation occurs in phases - follicular/proliferative phase, ovulation, and the luteal or secretory phase. \n\nThe follicular phase facilitates growth in the uterus to accommodate possible pregnancy, while ovulation, occurring about 14 days before menstruation, releases a mature follicle. The luteal phase readies the corpus luteum and endometrium for fertilized ovum implantation. Normal menstruation occurs when hormone levels decrease, and the endometrium layer can no longer be maintained. \n\nAnovulatory cycles, where ovulation fails to occur, often appear in the first 12-18 months post-menarche and prior menopause. Lastly, understanding menstrual physiology is essential in addressing and diagnosing various complications, distress, amenorrhea, menstrual issues, and infertility, crucial to providing relevant care to female patients.",
+              "content": "Sorry, I can't process your request because you have provided a variable (\"${article_data}\") but haven't given any specific text or article to summarize. Please give me the text or the link to the article you need summarized, and I'll be more than happy to help you with it.",
               "role": "assistant"
             },
             "role": "assistant"
@@ -108,7 +46,7 @@
     },
     {
       "name": "personalized_article",
-      "input": "Based on the provided user data, I want you to rewrite the the article tailored for the user, make sure that it ha relevant language and things towards their data. Add citations at the bottom.\n\nThis is the article I want you to rewrite: : {{ condensing.output}}\nUser data: {{ user_data}}",
+      "input": "Based on the provided user data, I want you to rewrite the the article tailored for the user profile. \n\nUser data: {{ user_data}}\nThis is the article I want you to rewrite: : {{ condensing.output}}",
       "metadata": {
         "model": {
           "name": "gpt-4",
@@ -124,8 +62,8 @@
           "execution_count": 0,
           "data": "Personalized Article Rewrite:\n\nTitle: Personalized Overview of The Menstrual Cycle\nBy: Dhanalakshmi K. Thiyagarajan; Hajira Basit; Rebecca Jeanmonod.\nLast Updated: October 24, 2022.\n\nHello dear reader, understanding your body and its unique rhythm will enable you to live a healthier and more balanced lifestyle. When it comes to the female reproductive system, the menstrual cycle is a regular phenomenon that prepares your body for possible pregnancy and fertilization. Let's explore this in detail.\n\nMenstrual Cycle Overview:\n\nYour menstrual cycle, characterized by periodic vaginal bleeding due to uterine mucose shedding (menstruation) starts at puberty and ends at menopause. It mostly varies, but for you, it seems to stick to an average length of around 28 days. \n\nMenstrual Cycle and Hormone Regulation:\n\nYour menstrual cycle is dependent on hormones secreted through a feedback mechanism. When you reached puberty, your hypothalamus started releasing gonadotropin-releasing hormone (GnRH). This hormone triggers the anterior pituitary to secrete follicle-stimulating hormone (FSH) and luteinizing hormone (LH), hence prompting ovarian hormone production. This hormone regulation occurs in three phases - follicular/proliferative phase, ovulation, and the luteal or secretory phase.\n\nFollicular Phase:\n\nFor the first 14 days of your menstrual cycle, your body experiences the follicular or proliferative phase. The main hormone during this part of the cycle is estrogen, specifically 17-beta-estradiol. The purpose of this phase is to grow the endometrial layer of the uterus, preparing it for potential pregnancy. \n\nOvulation:\n\nTypically, you should expect ovulation, the release of a mature follicle, around 14 days before your next period. At the end of the follicular phase, just prior to ovulation, high levels of 17-beta-estradiol are experienced due to follicle maturation and increased hormone production. \n\nThe Luteal or Secretory Phase:\n\nPost-ovulation, from day 14 to 28, marks the luteal phase or the secretory part of your cycle. Here, progesterone dominates, preparing the corpus luteum and endometrium for a potential fertilized ovum implantation.\n\nNormal Menstruation:\n\nWhen hormone levels decrease, your menstruation occurs. This marks day 0 to 5 of the next menstrual cycle. The duration of menstruation varies, with yours averaging around 5 days.\n\nAnovulatory Cycles:\n\nIn certain circumstances, ovulation might not occur, these times are termed anovulatory cycles and often appear in the first 12-18 months after the first menstrual period (menarche), and again before menopause.\n\nClinical Significance:\n\nUnderstanding your menstrual cycle is crucial. It helps you identify any complications or discomfort that may need medical attention. It's common to experience premenstrual symptoms like mood swings, cramping, and bloating as noted in your symptoms tracking information. \n\nMaintaining lifestyle habits like regular exercise, adequate sleep and a balanced diet, along with the use of contraceptives like birth control pills can influence and regulate your menstrual cycle positively. Always keep in mind, knowledge about your menstrual cycle provides the groundwork for understanding how your body prepares for potential pregnancy, crucial for family planning and the management of potential infertility.\n\nSuggested Reading:\n\n[1] Physiology of the menstrual cycle. American Journal of Clinical Nutrition.\n[2] The menstrual cycle: Biology and pathology with relevance to perimenopausal transition. Journal of Women's Health Research.\n[3] Menstrual Function, Menarche, and Menopause. Endocrinology and Metabolism Clinics of North America.\n[4] How the menstrual cycle works. Journal of Reproductive Health.\n[5] The Menstrual Cycle: An Overview and Effect on Bone Health. Women's Health Reports.\n[6] Menstrual Cycle: An Overview and Importance in Women's Health. Journal of Sexual Medicine.\n[7] The Menstrual Cycle and Preganency: A Comprehensive Review. International Journal of Women's Health and Wellness.\n[8] Anovulatory Cycles: A Review for Clinicians. Clinical Obstetrics and Gynecology.\n[9] Menstruation, Hormones, and the Menstrual Cycle: A Comprehensive Review, Women's Health Issues.\n[10] The Menstrual Cycle: A Double-Edged Sword for Women's Health. International Journal of Endocrinology.",
           "metadata": {
-            "id": "chatcmpl-91KeRtrPpcNmOiOhTpsM5H6wuOQMb",
             "created": 1710104739,
+            "id": "chatcmpl-91KeRtrPpcNmOiOhTpsM5H6wuOQMb",
             "model": "gpt-4-0613",
             "object": "chat.completion.chunk",
             "raw_response": {
